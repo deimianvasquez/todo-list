@@ -1,0 +1,40 @@
+[
+  {
+    "_id": "a6f4fb9d-92e5-45a6-9693-f8958e5fa795",
+    "colId": "e8610189-9b35-41cf-8b19-11974f5f5afa",
+    "containerId": "",
+    "name": "add_user",
+    "url": "http://localhost:3001/api/user",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2023-06-22T00:06:06.797Z",
+    "modified": "2023-06-22T00:12:03.508Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n \"name\":\"deimian\",\n            \"last_name\":\"Vásquez\",\n            \"email\":\"deimianvasquez@gmail.com\",\n            \"password\":\"123456\",\n            \"avatar\":\"avatar\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "c363f32d-8a5a-4ae4-aac1-9076954610f7",
+    "colId": "e8610189-9b35-41cf-8b19-11974f5f5afa",
+    "containerId": "",
+    "name": "login",
+    "url": "http://localhost:3001/api/login",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2023-06-22T00:11:16.174Z",
+    "modified": "2023-06-22T00:12:08.275Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n\n          \n            \"email\":\"deimianvasquez@gmail.com\",\n            \"password\":\"123456\"\n           \n}",
+      "form": []
+    },
+    "tests": []
+  }
+]
