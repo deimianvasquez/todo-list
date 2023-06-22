@@ -36,5 +36,23 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "e93373cf-f494-4975-8232-ccb25f4a999e",
+    "colId": "e8610189-9b35-41cf-8b19-11974f5f5afa",
+    "containerId": "",
+    "name": "get_todos",
+    "url": "http://localhost:3001/api/todos",
+    "method": "GET",
+    "sortNum": 30000,
+    "created": "2023-06-22T00:27:08.580Z",
+    "modified": "2023-06-22T00:35:54.039Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY4NzM5NDEzMSwianRpIjoiODM5YmZhNTMtNWYzMS00OTlhLTlmOWUtM2UxNjAwMTBkZmM5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNjg3Mzk0MTMxLCJleHAiOjE2ODczOTUwMzF9.bpc_yMXlJ78RJfR4DGDitGHNuI9aNdB05tvaSc8rNWc"
+    },
+    "tests": []
   }
 ]

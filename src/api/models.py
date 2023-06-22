@@ -15,6 +15,7 @@ class User(db.Model):
                           default=db.func.current_timestamp())
     updated_at = db.Column(db.DateTime, nullable=False, onupdate=db.func.current_timestamp(
     ), default=db.func.current_timestamp())
+    todos = db.relationship('Todo', backref='user', uselist=True)
 
     def __repr__(self):
         return f'<User {self.email}>'
@@ -45,4 +46,5 @@ class Todo(db.Model):
         return {
             "id": self.id,
             "label": self.label,
+            "done": self.done
         }
