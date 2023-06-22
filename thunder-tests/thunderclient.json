@@ -8,12 +8,12 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2023-06-22T00:06:06.797Z",
-    "modified": "2023-06-22T00:12:03.508Z",
+    "modified": "2023-06-22T00:43:06.018Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n \"name\":\"deimian\",\n            \"last_name\":\"Vásquez\",\n            \"email\":\"deimianvasquez@gmail.com\",\n            \"password\":\"123456\",\n            \"avatar\":\"avatar\"\n}",
+      "raw": "{\n \"name\":\"Daniel\",\n  \"last_name\":\"Moret\",\n  \"email\":\"danielmoret@gmail.com\",\n  \"password\":\"123456\",\n  \"avatar\":\"avatar\"\n}",
       "form": []
     },
     "tests": []
@@ -27,12 +27,12 @@
     "method": "POST",
     "sortNum": 20000,
     "created": "2023-06-22T00:11:16.174Z",
-    "modified": "2023-06-22T00:12:08.275Z",
+    "modified": "2023-06-22T00:43:17.498Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n\n          \n            \"email\":\"deimianvasquez@gmail.com\",\n            \"password\":\"123456\"\n           \n}",
+      "raw": "{\n    \"email\":\"deimianvasquez@gmail.com\",\n    \"password\":\"123456\"\n}",
       "form": []
     },
     "tests": []
@@ -42,11 +42,11 @@
     "colId": "e8610189-9b35-41cf-8b19-11974f5f5afa",
     "containerId": "",
     "name": "get_todos",
-    "url": "http://localhost:3001/api/todos",
+    "url": "https://sample-service-name-y8oz.onrender.com/api/todos",
     "method": "GET",
     "sortNum": 30000,
     "created": "2023-06-22T00:27:08.580Z",
-    "modified": "2023-06-22T00:35:54.039Z",
+    "modified": "2023-06-22T00:41:24.376Z",
     "headers": [],
     "params": [],
     "auth": {
