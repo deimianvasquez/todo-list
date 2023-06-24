@@ -27,20 +27,17 @@ def register_user():
     if request.method == "POST":
         data_files = request.files
         data_form = request.form
-        print(data_form)
+        
 
         data = {
             "name": data_form.get("name"),
             "last_name": data_form.get("lastname"),
             "email": data_form.get("email"),
             "password": data_form.get("password"),
-            "avata": data_files.get("avatar")
+            "avatar": data_files.get("avatar")
         }
 
         
-    
-
-
         if data is None:
             return jsonify({"msg": "Missing JSON in request"}), 400
         if data.get("name") is None:
@@ -51,7 +48,7 @@ def register_user():
             return jsonify({"msg": "Missing email parameter"}), 400
         if data.get("password") is None:
             return jsonify({"msg": "Missing password parameter"}), 400
-        if data.get("avata") is None:
+        if data.get("avatar") is None:
             return jsonify({"msg": "Missing avatar parameter"}), 400
 
         user = User.query.filter_by(email=data.get("email")).first()
@@ -61,17 +58,15 @@ def register_user():
         password_salt = b64encode(os.urandom(32)).decode('utf-8')
         password_hash = set_password(data.get("password"), password_salt)
 
-        response_image = uploader.upload(data.get("avata"))
-        data.update({"avata": response_image.get("url")})
-
-        print(data)
+        response_image = uploader.upload(data.get("avatar"))
+        data.update({"avatar": response_image.get("url")})
 
         new_user = User(
             name=data.get("name"),
             last_name=data.get("last_name"),
             email=data.get("email"),
             password=password_hash,
-            avata=data.get("avata"),
+            avata=data.get("avatar"),
             salt=password_salt
         )
 
