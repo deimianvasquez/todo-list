@@ -8,6 +8,7 @@ from base64 import b64encode
 import os
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
+import cloudinary.uploader as uploader
 
 
 api = Blueprint('api', __name__)
@@ -24,7 +25,21 @@ def check_password(hash_password, password, salt):
 @api.route('/user', methods=['POST'])
 def register_user():
     if request.method == "POST":
-        data = request.json
+        data_files = request.files
+        data_form = request.form
+        print(data_form)
+
+        data = {
+            "name": data_form.get("name"),
+            "last_name": data_form.get("lastname"),
+            "email": data_form.get("email"),
+            "password": data_form.get("password"),
+            "avata": data_files.get("avatar")
+        }
+
+        
+    
+
 
         if data is None:
             return jsonify({"msg": "Missing JSON in request"}), 400
@@ -36,7 +51,7 @@ def register_user():
             return jsonify({"msg": "Missing email parameter"}), 400
         if data.get("password") is None:
             return jsonify({"msg": "Missing password parameter"}), 400
-        if data.get("avatar") is None:
+        if data.get("avata") is None:
             return jsonify({"msg": "Missing avatar parameter"}), 400
 
         user = User.query.filter_by(email=data.get("email")).first()
@@ -46,12 +61,17 @@ def register_user():
         password_salt = b64encode(os.urandom(32)).decode('utf-8')
         password_hash = set_password(data.get("password"), password_salt)
 
+        response_image = uploader.upload(data.get("avata"))
+        data.update({"avata": response_image.get("url")})
+
+        print(data)
+
         new_user = User(
             name=data.get("name"),
             last_name=data.get("last_name"),
             email=data.get("email"),
             password=password_hash,
-            avata=data.get("avatar"),
+            avata=data.get("avata"),
             salt=password_salt
         )
 
@@ -62,6 +82,7 @@ def register_user():
         except Exception as error:
             db.session.rollback()
             return jsonify({"msg": "Error registering user", "error": str(error)}), 500
+        return jsonify([]), 200
 
 
 @api.route('/login', methods=['POST'])
