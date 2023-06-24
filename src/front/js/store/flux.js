@@ -1,7 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
-      token: null,
+      token: localStorage.getItem("token") || null,
       message: null,
 
       demo: [
@@ -34,9 +34,11 @@ const getState = ({ getStore, getActions, setStore }) => {
           setStore({
             token: data.token,
           });
-          console.log(data);
+
+          localStorage.setItem("token", data.token)
+          return response.status
         } catch (error) {
-          console.log(error);
+          return response.status
         }
       },
       registerUser: async (user) => {
@@ -49,10 +51,11 @@ const getState = ({ getStore, getActions, setStore }) => {
             body: user
           })
 
-          console.log(response)
+          let data = await response.json()
+
 
         } catch (error) {
-          console.log(error)
+          return response.status
         }
       },
 

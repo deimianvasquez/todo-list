@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import { Link } from 'react-router-dom'
+import Swal from "sweetalert2"
 
 const initialState = {
   email: "",
@@ -12,8 +13,23 @@ const Login = () => {
 
   const [user, setUser] = useState(initialState)
 
-  const handleLogin = () => {
-    actions.login({ email: "deimianvasquez@gmail.com", password: "123456" });
+  const handleLogin = async () => {
+    let response = await actions.login(user);
+    if (response == 200) {
+      Swal.fire({
+        title: "Usuario logueado con éxito",
+        icon: "success",
+        confirmButtonText: "Aceptar",
+      })
+    }
+    if (response == 400) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong!',
+        footer: '<a href="">Why do I have this issue?</a>'
+      })
+    }
   };
 
   const handleChange = ({ target }) => {

@@ -99,7 +99,7 @@ def login():
                 return jsonify({"token": token}), 200
             else:
                 return jsonify({"msg": "Bad credentials"}), 400
-
+        return jsonify({"msg": "Bad credentials"}), 400
 
 @api.route('/todos', methods=["GET"])
 @jwt_required()
