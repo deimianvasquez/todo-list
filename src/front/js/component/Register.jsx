@@ -26,7 +26,7 @@ const Register = () => {
         formData.append("lastname", user.lastname)
         formData.append("email", user.email)
         formData.append("password", user.password)
-        formData.append("avatar", user.avata)
+        formData.append("avatar", user.avatar)
 
         const response = actions.registerUser(formData)
 
