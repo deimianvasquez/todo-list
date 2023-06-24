@@ -3,6 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
     store: {
       token: null,
       message: null,
+
       demo: [
         {
           title: "FIRST",

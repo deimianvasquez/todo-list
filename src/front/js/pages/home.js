@@ -6,9 +6,10 @@ import Login from "../component/Login.jsx";
 const token = null
 
 export const Home = () => {
+  const { store } = useContext(Context)
   return (
     <div>
-      {token ? <p>todos</p> : <Login />}
+      {store.token ? <p>todos</p> : <Login />}
     </div>
   )
 };

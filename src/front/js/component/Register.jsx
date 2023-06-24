@@ -98,7 +98,7 @@ const Register = () => {
                                     id="avatar"
                                     name="avatar"
                                     placeholder="avatar"
-                                    onChange={handleChange}
+                                    onChange={({ target }) => setUser({ ...user, avatar: target.files[0] })}
                                 //  value={user.avatar}
                                 />
                             </div>
